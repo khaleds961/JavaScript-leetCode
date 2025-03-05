@@ -62,3 +62,21 @@ console.log(urlCreate("https", "elzero", "org")); // https://www.elzero.org
 const checker = (zName) => (status) => (salary) => status === "Available" ? `${zName}, My Salary Is ${salary}` : `Iam Not Avaialble`;
 console.log(checker("Osama")("Available")(4000)); // Osama, My Salary Is 4000
 console.log(checker("Ahmed")("Not Available")()); // Iam Not Avaialble
+
+
+function specialMix(...data) {
+    let total = 0;
+    let foundNumber = false;
+    for (let i = 0; i < data.length; i++) {
+        if (!isNaN(parseInt(data[i]))) {
+            total += parseInt(data[i]);
+            foundNumber = true;
+        }
+    }
+    return foundNumber ? total : "All Is Strings"; 
+}
+
+console.log(specialMix(10, 20, 30)); // 60
+console.log(specialMix("10Test", "Testing", "20Cool")); // 30
+console.log(specialMix("Testing", "10Testing", "40Cool")); // 50
+console.log(specialMix("Test", "Cool", "Test")); // All Is Strings
