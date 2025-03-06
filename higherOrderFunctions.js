@@ -1,14 +1,27 @@
-let sentence = 'i love food code too playing match'; ``
-let sentArr = sentence.split(" ").filter((el) => {
-    return el.length > 4;
-}).join(" ")
-console.log(sentArr);
+let theBiggest = ['bla', 'propaganda', 'other', 'aaa', 'battery', 'test'];
 
-let mix = "A13Bs2zx";
 
-let getNumbers = mix.split('').filter((el) => {
-return !isNaN(parseInt(el))
-}).map((el)=>{
-    return el*el;
+let find = theBiggest.reduce((acc, curr) => {
+    return acc.length > curr.length ? acc : curr;
 })
-console.log(getNumbers);
+
+console.log(find);
+
+let chars = ['e', '@', '@', 'l', 'z', 'e', 'r', '@', '0'];
+
+let ok = chars.filter((e) => {
+    return e !== '@'
+}).reduce((acc,curr)=>{
+    return acc + curr
+})
+console.log(ok);
+
+
+
+
+
+
+
+
+
+
