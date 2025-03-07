@@ -1,71 +1,136 @@
-let mix = [1, 2, 3, "E", 4, "l", "z", "e", "r", 5, "o"];
+const numbers = [1, 2, 3, 4, 5];
+// Expected output: [2, 4, 6, 8, 10]
 
-// Elzero
-let str = mix.map((el) => {
-    return isNaN(parseInt(el)) ? el : ''
-}).reduce((acc, cur) => {
-    return acc + cur
+let doubleNumbers = numbers.map((el) => {
+    return el + el
 })
 
-console.log(str);
+console.log(doubleNumbers);
 
+const numberss = [10, 20, 30, 40];
+// Expected output: ["10", "20", "30", "40"]
 
-let myString = "EElllzzzzzzzeroo";
-
-// Elzero
-let noRepeat = myString.split('').filter((el, index) => {
-    return myString.indexOf(el) == index
-}).join('')
-
-console.log(noRepeat);
-
-
-let myArray = ["E", "l", "z", ["e", "r"], "o"];
-
-// Elzero
-let see = myArray.reduce((acc, cur) => {
-    return acc.concat(cur), []
+let numbersToStrings = numbers.map((el) => {
+    return `${el}`;
 })
 
-console.log(see);
+console.log(numbersToStrings);
 
 
+const people = [
+    { name: "Alice", age: 25 },
+    { name: "Bob", age: 30 },
+    { name: "Charlie", age: 35 },
+];
+// Expected output: ["Alice", "Bob", "Charlie"]
 
-let numsAndStrings = [1, 10, -10, -20, 5, "A", 3, "B", "C"];
-
-// [-1, -10, 10, 20, -5, -3]
-
-let ss = numsAndStrings.filter((el) => {
-    return !isNaN(parseInt(el))
-}).map((e) => {
-    return -e
+const peopleNames = people.map((el) => {
+    return el.name;
 })
 
-console.log(ss);
+console.log(peopleNames);
 
 
-let nums = [2, 12, 11, 5, 10, 1, 99];
+const numberses = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// Expected output: [2, 4, 6, 8, 10]
 
-// 500
-
-
-let calc = nums.reduce((acc, curr) => {
-    return curr % 2 == 0 ? acc * curr : acc + curr
-}, 1)
-
-console.log(calc);
-
-
-let mySring = "1,2,3,EE,l,z,e,r,o,_,W,e,b,_,S,c,h,o,o,l,2,0,Z";
-
-let solution = mySring.split(',').map((e)=>{
-    return isNaN(parseInt(e)) ? e : ''
-}).filter((e)=>{
-    return e != '_'
-}).reduce((acc,curr)=>{
-    return acc+curr
-}).split('').filter((el,index)=>{
-    return mySring.indexOf(el) !== index
+let doubleN = numberses.filter((el) => {
+    return el % 2 == 0
 })
 
-console.log(solution);
+console.log(doubleN);
+
+const peoples = [
+    { name: "Alice", age: 25 },
+    { name: "Bob", age: 30 },
+    { name: "Charlie", age: 35 },
+];
+// Expected output: [{ name: "Charlie", age: 35 }]
+
+let older = peoples.filter((el) => {
+    return el.age > 30;
+})
+console.log(older);
+
+const words = ["apple", "banana", "kiwi", "mango", "watermelon"];
+// Expected output: ["banana", "watermelon"]
+
+let longest = words.filter((el) => {
+    return el.length > 5;
+})
+
+console.log(longest);
+
+
+const arr = [1, 2, 3, 4, 5];
+// Expected output: 15
+
+let sum = arr.reduce((acc, curr) => {
+    return acc + curr;
+})
+console.log(sum);
+
+const wordss = ["Hello", "world", "from", "JavaScript"];
+// Expected output: "Hello world from JavaScript"
+
+let con = wordss.reduce((acc, curr) => {
+    return acc + ' ' + curr;
+})
+
+console.log(con);
+
+
+const num = [10, 5, 20, 15, 30];
+// Expected output: 30
+
+let biggest = num.reduce((acc, curr) => {
+    return acc > curr ? acc : curr;
+})
+
+console.log(biggest);
+
+
+const fornumbers = [1, 2, 3, 4, 5];
+// Expected output: 1, 2, 3, 4, 5 (logged to the console)\
+
+fornumbers.forEach(element => {
+    console.log(element);
+
+});
+
+let arrnumbers = [1, 2, 3, 4, 5];
+// Expected output: [2, 4, 6, 8, 10] (original array modified)
+arrnumbers.forEach((el, index, arr) => {
+    arr[index] = el * 2
+})
+console.log(arrnumbers);
+
+
+const ppl = [
+    { name: "Alice", age: 25 },
+    { name: "Bob", age: 30 },
+    { name: "Charlie", age: 35 },
+];
+// Expected output:
+// "Name: Alice, Age: 25"
+// "Name: Bob, Age: 30"
+// "Name: Charlie, Age: 35"
+
+ppl.forEach((el) => {
+    console.log('Name: ' + el.name + ', ' + 'Age: ' + el.age);
+})
+
+
+const nu = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// Expected output: [2, 6, 10, 14, 18]
+
+let evenAndDouble = nu.filter((el) => { return el % 2 !== 0 }).map((el) => { return el * 2 });
+console.log(evenAndDouble);
+
+const numb = [10, 20, 30, 40, 50];
+// Expected output: 30
+let av = numb.reduce((pr,cur,arr)=>{
+    return pr+cur
+})
+
+console.log(av);
