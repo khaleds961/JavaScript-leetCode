@@ -129,8 +129,18 @@ console.log(evenAndDouble);
 
 const numb = [10, 20, 30, 40, 50];
 // Expected output: 30
-let av = numb.reduce((pr,cur,arr)=>{
-    return pr+cur
+let av = numb.reduce((pr, cur, arr) => {
+    return pr + cur
 })
+av = av / numb.length;
 
 console.log(av);
+
+const wor = ["apple", "banana", "apple", "orange", "banana", "apple"];
+// Expected output: { apple: 3, banana: 2, orange: 1 }
+let recc = wor.reduce((acc, cur) => {
+    acc[cur] = (acc[cur] || 0) + 1
+    return acc;
+}, {})
+
+console.log(recc);
