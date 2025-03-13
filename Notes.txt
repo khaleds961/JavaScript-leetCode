@@ -1,1 +1,2 @@
-1- it's better to put the script in the end of the page, which let the page finish load and then apply the script.
+1- it's better to put the script in the end of the page,
+ which let the page finish load and then apply the script.
