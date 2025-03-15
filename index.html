@@ -5,10 +5,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Js Lessons</title>
+    <style>
+        form {
+            display: flex;
+            padding: 10px;
+            background-color: gainsboro;
+        }
+
+        form input {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            margin: 0 20px;
+        }
+
+        form button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: tomato;
+            color: aliceblue;
+            font-weight: bold;
+            margin: 0 20px;
+            width: 100px;
+            cursor: pointer;
+        }
+
+        .results {
+            background-color: gainsboro;
+            margin-top: 20px;
+            padding: 10px;
+            display: none;
+        }
+
+        .todo {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: white;
+            color: black;
+            font-weight: bold;
+            margin: 10px auto;
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
 </head>
 
 <body>
+    <div>
+        <form action="">
+            <input type="text">
+            <button>Add +</button>
+        </form>
 
+        <div class="results"> </div>
+    </div>
 </body>
 
 </html>
@@ -17,4 +71,5 @@
 <!-- <script src="challengeFunctionAdvanced.js"></script> -->
 <!-- <script src="higherOrderFunctions.js"></script> -->
 <!-- <script src="Objects.js"></script> -->
-<script src="dom.js"></script>
+<!-- <script src="dom.js"></script> -->
+<script src="bom.js"></script>
