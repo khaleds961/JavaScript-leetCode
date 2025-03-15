@@ -37,81 +37,67 @@
 
 
 
-let id = parseInt(Math.random() * 9999);  // Initialize the `id` variable if it's not already defined
+let id = parseInt(Math.random() * 9999);  // Initialize the `id` variable
 let addButton = document.querySelector('button');
 let input = document.querySelector('input');
 let results = document.querySelector('.results');
 
+function createTodoElement(element) {
+    let todo = document.createElement('div');
+    let removeBtn = document.createElement('button');
+    let span = document.createElement('span');
 
-if (localStorage.getItem('todos')) {
-    let todos = JSON.parse(localStorage.getItem('todos'))
-    results.style.display = 'block';
-    todos.forEach(element => {
-        let todo = document.createElement('div');
-        let removeBtn = document.createElement('button');
-        removeBtn.classList.add('remove')
-        let span = document.createElement('span');
-        span.innerHTML = element.text;
-        removeBtn.setAttribute('id', `${element.id}`)
-        todo.setAttribute('id', `todo${element.id}`)
-        removeBtn.innerHTML = 'delete';
-        todo.classList.add('todo');
-        todo.append(span)
-        // todo.append(removeBtn)
-        results.append(todo)
+    span.innerHTML = element.text;
+    removeBtn.innerHTML = 'delete';
+
+    removeBtn.classList.add('remove');
+    removeBtn.setAttribute('id', `${element.id}`);
+    todo.setAttribute('id', `todo${element.id}`);
+    todo.classList.add('todo');
+
+    todo.append(span);
+    todo.append(removeBtn);
+    results.append(todo);
+
+    // Attach the remove event directly when creating the button
+    removeBtn.addEventListener('click', function () {
+        let id = this.id;
+        document.getElementById(`todo${id}`).remove();
+
+        // Update localStorage
+        let todos = JSON.parse(localStorage.getItem('todos')) || [];
+        let filtered = todos.filter(el => el.id != id);
+        localStorage.setItem('todos', JSON.stringify(filtered));
     });
 }
 
-let remove = document.querySelectorAll('.remove')
+// Load todos from localStorage
+if (localStorage.getItem('todos')) {
+    let todos = JSON.parse(localStorage.getItem('todos'));
+    results.style.display = 'block';
+    todos.forEach(createTodoElement);
+}
 
-remove.forEach((button) => {
-    button.addEventListener('click', function () {  // Use addEventListener
-        let id = this.id;
-        document.getElementById(`todo${id}`).remove();
-        let todos = JSON.parse(localStorage.todos);
-        let filtred = todos.filter((el)=>{
-            return el.id != id;
-        })
-        localStorage.setItem('todos',JSON.stringify(filtred))
-
-    });
-})
-
-
+// Handle add new todo
 addButton.addEventListener('click', function (e) {
-    e.preventDefault();  // Prevent the default behavior of the input field
+    e.preventDefault();  // Prevent form submission
 
     if (input.value.length > 0) {
-        let todo = document.createElement('div');
-        let removeBtn = document.createElement('button');
-
         id += 10;
         results.style.display = 'block';
 
+        let newTodo = {
+            id: id,
+            text: input.value
+        };
 
-        removeBtn.classList.add('remove')
-        let span = document.createElement('span');
-        span.innerHTML = input.value;
-        removeBtn.setAttribute('id', `${id}`)
-        todo.setAttribute('id', `todo${id}`)
-        removeBtn.innerHTML = 'delete';
-        todo.classList.add('todo');
-        todo.append(span)
-        todo.append(removeBtn)
-        results.append(todo)
+        createTodoElement(newTodo);
 
-        // Get the existing todos from localStorage or initialize an empty array
+        // Store in localStorage
         let todos = JSON.parse(localStorage.getItem('todos')) || [];
-
-        // Push the new todo into the array
-        todos.push({
-            'id': id,
-            'text': todo.innerHTML
-        });
-
-        // Store the updated todos back to localStorage
+        todos.push(newTodo);
         localStorage.setItem('todos', JSON.stringify(todos));
-    }
 
-    input.value = '';  // Clear the input field
+        input.value = '';  // Clear input
+    }
 });
