@@ -82,10 +82,10 @@ function checkInfo() {
 
     let info = JSON.parse(sessionStorage.getItem('info')) ?? [];
 
-    document.querySelector('[name=firstName]').value = info.fname;
-    document.querySelector('[name=lastName]').value = info.lname;
-    document.querySelector('[name=age]').value = info.age;
-    document.querySelector('[name=country]').value = info.country;
+    document.querySelector('[name=firstName]').value = info.fname ?? '';
+    document.querySelector('[name=lastName]').value = info.lname ?? '';
+    document.querySelector('[name=age]').value = info.age ?? '';
+    document.querySelector('[name=country]').value = info.country ?? 'Lebanon';
 }
 
 checkInfo()
