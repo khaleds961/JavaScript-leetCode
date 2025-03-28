@@ -1,0 +1,35 @@
+[{
+    "id":1,
+    "author":"James Bravo",
+    "section":"horror",
+    "title":"the House",
+    "article":"Article 1"
+},
+{
+    "id":2,
+    "author":"Jhonny",
+    "section":"fantasy",
+    "title":"the Crown",
+    "article":"Article 2"
+},
+{
+    "id":3,
+    "author":"Beabe Bravo",
+    "section":"comedy",
+    "title":"the dinner",
+    "article":"Article 3"
+},{
+    "id":4,
+    "author":"Hanna Bravo",
+    "section":"action",
+    "title":"the castle",
+    "article":"Article 4"
+}
+,{
+    "id":5,
+    "author":"Ben Blue",
+    "section":"thriller",
+    "title":"the Queen",
+    "article":"Article 5"
+}
+]
